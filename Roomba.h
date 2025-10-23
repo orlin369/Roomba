@@ -634,7 +634,7 @@ private:
     uint32_t        _baud;
 
     /// The serial port to use to talk to the Roomba
-    HardwareSerial* _serial;
+    Stream* _serial;
 
     /// Variables for keeping track of polling of data streams
     uint8_t         _pollState; /// Current state of polling, one of Roomba::PollState
