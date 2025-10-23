@@ -16,6 +16,7 @@
 
 // Defines the Roomba instance and the HardwareSerial it connected to
 Roomba roomba(&Serial);
+
 int ledPin =  13;
 
 void setup()
@@ -39,7 +40,7 @@ void loop()
   bool ret = roomba.pollSensors(buf, 52);
   // Turn the LED on if the read was OK, meaning
   // we got a complete sensor stream with a correct checksum and therefore buf is valid
-  // and filled with sendor data for the sensor IDs requested in stream()
+  // and filled with senor data for the sensor IDs requested in stream()
   if (ret)
     digitalWrite(ledPin, HIGH);
   else
