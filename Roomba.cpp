@@ -5,7 +5,7 @@
 
 #include "Roomba.h"
 
-Roomba::Roomba(HardwareSerial* serial, Baud baud)
+Roomba::Roomba(Stream* serial, Baud baud)
 {
   _serial = serial;
   _baud = baudCodeToBaudRate(baud);
