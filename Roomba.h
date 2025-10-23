@@ -386,7 +386,7 @@ public:
     /// \param[in] serial Pointer to the HardwareSerial port to use to communicate with the Roomba.
     /// Defaults to &Serial
     /// \param[in] baud the baud rate to use on the serial port. Defaults to 57600, the default for the Roomba.
-    Roomba(Stream* serial, Baud baud = Baud57600);
+    Roomba(HardwareSerial* serial, Baud baud = Baud57600);
 
     /// Resets the Roomba.
     /// It will emit its startup message
@@ -634,7 +634,7 @@ private:
     uint32_t        _baud;
 
     /// The serial port to use to talk to the Roomba
-    Stream* _serial;
+    HardwareSerial* _serial;
 
     /// Variables for keeping track of polling of data streams
     uint8_t         _pollState; /// Current state of polling, one of Roomba::PollState
