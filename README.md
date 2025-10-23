@@ -5,7 +5,7 @@ The Create understands a superset of the **Roomba** commands. This library suppo
 
 The version of the package that this documentation refers to can be downloaded from http://www.airspayce.com/mikem/arduino/Roomba/Roomba-1.3.zip You can find the latest version at http://www.airspayce.com/mikem/arduino/Roomba
 
-Tested on Arduino Duemilanove, Diecimila and Mega with arduino-0018 on OpenSuSE 11.1 and avr-libc-1.6.1-1.15, cross-avr-binutils-2.19-9.1, cross-avr-gcc-4.1.3_20080612-26.5.
+Tested on Arduino Duemilanove, Diecimila and Mega with arduino-0018 on OpenSuSE 11.1 and avr-libc-1.6.1-1.15, cross-avr-binutils-2.19-9.1, cross-avr-gcc-4.1.3_20080612-26.5. Also compatible with ESP8266 and ESP32 architectures.
 
 A number of example programs are included that work with the iRobot Create:
 - TestSuite Runs on a Mega and exercises a number of the functions, checking for correct operation
