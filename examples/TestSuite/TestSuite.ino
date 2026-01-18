@@ -1,8 +1,8 @@
-// TestSuite.pde
+// TestSuite.ino
 //
 // Test Suite for Roomba class
 //
-// Runs on a Mega with the Create connected to Serial1
+// Runs on a Uno/Mega/Due/ESP8266/ESP32 with the Create connected to Serial0/Serial1.
 // Does not run any motors.
 // Prints the result of the self test to Serial
 // Does not require the RXD transistor driver since it uses Serial1 to talk to the Roomba, not Serial.
@@ -12,31 +12,38 @@
 
 #include <Roomba.h>
 
-// Defines the Roomba instance and the HardwareSerial it connected to
+/**
+ * @brief Logs an error message and increments the error count.
+ * 
+ * @param m  The error message to log.
+ */
+void error(const char *m);
+
+/**
+ * @brief Checks a test condition, and logs an error if it is false.
+ * 
+ * @param t  The test condition.
+ * @param m  The error message to log if the test fails.
+ */
+void check(boolean t, const char *m);
+
+/**
+ * @brief Counts the number of errors encountered.
+ * 
+ */
+unsigned int errors = 0;
+
+/**
+ * @brief Defines the Roomba instance and the HardwareSerial it connected to
+ * 
+ * @return Roomba 
+ */
 Roomba roomba(&Serial1);
 
 void setup()
 {
-    Serial.begin(9600);
-}
-
-unsigned int errors = 0;
-
-void error(const char *m)
-{
-  Serial.print("Error: ");
-  Serial.println(m);
-  errors++;
-}
-
-void check(boolean t, const char *m)
-{
-  if (!t)
-    error(m);
-}
-
-void loop()
-{
+  Serial.begin(9600);
+  
   roomba.start();
   roomba.fullMode();
   
@@ -90,8 +97,32 @@ void loop()
     delay(500);
     digitalWrite(13, LOW);
   }
-  while (1)
-    ;
 }
 
-  
+void loop()
+{
+}
+
+/**
+ * @brief Logs an error message and increments the error count.
+ * 
+ * @param m  The error message to log.
+ */
+void error(const char *m)
+{
+  Serial.print("Error: ");
+  Serial.println(m);
+  errors++;
+}
+
+/**
+ * @brief Checks a test condition, and logs an error if it is false.
+ * 
+ * @param t  The test condition.
+ * @param m  The error message to log if the test fails.
+ */
+void check(boolean t, const char *m)
+{
+  if (!t)
+    error(m);
+}
