@@ -8,9 +8,10 @@ The version of the package that this documentation refers to can be downloaded f
 Tested on Arduino Duemilanove, Diecimila and Mega with arduino-0018 on OpenSuSE 11.1 and avr-libc-1.6.1-1.15, cross-avr-binutils-2.19-9.1, cross-avr-gcc-4.1.3_20080612-26.5. Also compatible with ESP8266 and ESP32 architectures.
 
 A number of example programs are included that work with the iRobot Create:
-- TestSuite Runs on a Mega and exercises a number of the functions, checking for correct operation
-- RoombaTest1 Runs in any Arduino, checks that sensors can be read from Create using the stream() command
-- RoombaRCRx Demo program that shows how to control a Create using the RCRx Arduino library, an Arduino WiFi shield such as BlackWidow and the RCTx iPhone app. Control a Create from your iPhone!
+- **TestSuite** - Runs on a Mega and exercises a number of the functions, checking for correct operation
+- **RoombaTest1** - Runs on any Arduino, checks that sensors can be read from Create using the stream() command
+- **RoombaRCRx** - Demo program that shows how to control a Create using the RCRx Arduino library, an Arduino WiFi shield such as BlackWidow and the RCTx iPhone app
+- **ESP32Example** - Interactive example for ESP32 with serial commands for movement, sensors, LEDs, and autonomous demo
 
 A video domonstating this library (along with the http://www.airspayce.com/mikem/arduino/RCKit library) being used to control a Create from an iPhone or iPad can be found at http://www.youtube.com/watch?v=Qv-5ZOb5WW4
 
@@ -31,5 +32,11 @@ This software is Copyright (C) 2010 Mike McCauley. Use is subject to license con
 |1.2|Compiles under Arduino 1.0|
 |1.3|Updated author and distribution location details to airspayce.com|
 
-## Author:
+## Author
 Mike McCauley (mikem@airspayce.com)
+
+## Maintainer
+orlin369 (https://github.com/orlin369)
+
+## For AI Assistants
+See [CLAUDE.md](CLAUDE.md) for project documentation and development guidelines.
