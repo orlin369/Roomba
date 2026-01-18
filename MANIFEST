@@ -10,3 +10,4 @@ API.md
 examples/TestSuite/TestSuite.ino
 examples/RoombaTest1/RoombaTest1.ino
 examples/RoombaRCRx/RoombaRCRx.ino
+examples/ESP32Example/ESP32Example.ino
