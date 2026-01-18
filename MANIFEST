@@ -2,6 +2,7 @@ Makefile
 MANIFEST
 project.cfg
 library.properties
+library.json
 README.md
 Roomba.h
 Roomba.cpp
