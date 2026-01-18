@@ -21,7 +21,8 @@ Roomba/
 ├── examples/
 │   ├── RoombaTest1/      # Basic sensor streaming test
 │   ├── TestSuite/        # Comprehensive test suite
-│   └── RoombaRCRx/       # WiFi remote control example
+│   ├── RoombaRCRx/       # WiFi remote control example
+│   └── ESP32Example/     # ESP32 communication example
 ├── doc/                  # Pre-generated Doxygen HTML documentation
 ├── API.md                # API reference documentation
 ├── README.md             # User documentation
@@ -92,6 +93,16 @@ Uses Arduino IDE standard library structure with no external dependencies.
 
 **Note:** The primary Serial port on Uno/similar boards requires a PNP transistor buffer circuit for reliable communication (see `doc/Create-Arduino.pdf`). Serial1/Serial2/Serial3 on Mega/Due work without modification.
 
+### ESP32 Wiring
+
+```
+ESP32 GPIO16 (RX2) → Roomba TXD (pin 5 on Mini-DIN)
+ESP32 GPIO17 (TX2) → Roomba RXD (pin 3 on Mini-DIN)
+ESP32 GND          → Roomba GND (pin 6/7 on Mini-DIN)
+```
+
+A level shifter is recommended (ESP32 uses 3.3V, Roomba uses 5V logic).
+
 ## Testing
 
 Run examples via Arduino IDE:
@@ -99,6 +110,7 @@ Run examples via Arduino IDE:
 1. **RoombaTest1.ino** - Basic sensor streaming with LED feedback
 2. **TestSuite.ino** - Comprehensive validation of library functions
 3. **RoombaRCRx.ino** - WiFi integration test
+4. **ESP32Example.ino** - Interactive ESP32 control with serial commands
 
 ## Platform-Specific Features
 
@@ -141,8 +153,8 @@ Run examples via Arduino IDE:
 ## Git Workflow
 
 ### Branching Strategy
-- **main**: Production-ready code, only receives merges from dev
-- **dev**: Development branch, created from main, where integration happens
+- **master**: Production-ready code, only receives merges from dev
+- **dev**: Development branch, created from master, where integration happens
 - **feature branches**: Created from dev for each new feature or change
 
 ### Branch Naming
@@ -183,7 +195,7 @@ Run examples via Arduino IDE:
 
 5. **ASK before merging to dev:**
    - Always ask the user for approval before merging feature into dev
-   - Example: "Feature is ready and committed. May I merge to dev and main?"
+   - Example: "Feature is ready and committed. May I merge to dev and master?"
 
 6. **Merge feature branch to dev (with --no-ff to preserve branch history):**
    ```bash
@@ -191,15 +203,15 @@ Run examples via Arduino IDE:
    git merge feature/<short-description> --no-ff -m "Merge feature/<short-description> into dev"
    ```
 
-7. **Merge dev to main (with --no-ff to preserve branch history):**
+7. **Merge dev to master (with --no-ff to preserve branch history):**
    ```bash
-   git checkout main
-   git merge dev --no-ff -m "Merge dev into main"
+   git checkout master
+   git merge dev --no-ff -m "Merge dev into master"
    ```
 
 8. **Push both branches and clean up:**
    ```bash
-   git push origin main
+   git push origin master
    git push origin dev
    git branch -d feature/<short-description>
    ```
@@ -209,7 +221,7 @@ Run examples via Arduino IDE:
 Always use `--no-ff` (no fast-forward) when merging to create merge commits. This preserves the branch topology and makes the history visible in GitLens:
 
 ```
-*   Merge dev into main
+*   Merge dev into master
 |\
 | *   Merge feature/xyz into dev
 | |\
